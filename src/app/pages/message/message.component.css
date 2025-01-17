@@ -1,0 +1,28 @@
+.mainContainer{
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header{
+    background-color: aqua;
+    width: 100%;
+    height: 8%;
+    position: fixed;
+    top: 0px;
+}
+.middle{
+    height: calc(100% - 16%);
+    margin-top: 5%;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.footer{
+    position: fixed;
+    bottom: 0px;
+    height: 8%;
+    background-color: green;
+    width: 100%;
+}
