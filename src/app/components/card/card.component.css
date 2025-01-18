@@ -2,4 +2,26 @@
     height: 80px;
     background-color: rgb(213, 208, 208);
     border-radius: 10px;
+    padding: 0px 10px;
+    display: flex;
+    align-content: center;
+    cursor: pointer;
+}
+.avatorImage{
+    width: 65px;
+    height: 65px;
+    margin-top: 5px;
+}
+.textContainer{
+    margin-left: 20px;
+}
+h2{
+    font-size: 28px;
+    font-weight: 600;
+}
+p{
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 5px;
+    text-wrap: wrap;
 }
