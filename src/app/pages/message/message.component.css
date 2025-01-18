@@ -6,11 +6,11 @@
 }
 
 .header{
-    background-color: aqua;
     width: 100%;
     height: 8%;
     position: fixed;
     top: 0px;
+    box-shadow: 3px 1px 1px black;
 }
 .middle{
     height: calc(100% - 16%);
@@ -18,11 +18,67 @@
     padding: 10px;
     overflow-y: auto;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
 }
 .footer{
     position: fixed;
     bottom: 0px;
     height: 8%;
-    background-color: green;
     width: 100%;
+}
+.inputContainer{
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    height: 100%;
+}
+.input{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: rgba(218, 212, 212, 0.852);
+    border-radius: 5px;
+    font-size: 14px;
+    color: #000000;
+    outline: none;
+}
+.input::placeholder{
+    font-size: 14px;
+}
+button{
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 10%;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: green;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+span{
+    font-size: 14px;
+    font-weight: 400;
+}
+.sendImage{
+    width: 18px;
+    margin-left: 5px;
+}
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80%;
+    height: 100%;
+    padding: 20px;
+}
+h3{
+    font-size: 18px;
+    font-weight: 500;
 }

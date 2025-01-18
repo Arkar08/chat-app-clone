@@ -15,4 +15,6 @@
     overflow-x: hidden;
     overflow-y: auto;
     height: calc(100% - 70px);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
 }
