@@ -1,0 +1,43 @@
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+button{
+    width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 3px black;
+}
+button:nth-child(1){
+    background-color: red;
+    color: white;
+    margin-right: 10px;
+}
+button:nth-child(2){
+    background-color: green;
+    color: white;
+}
+mat-form-field{
+    width: 100%;
+}
+h3{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: blue;
+}
+.inputNumber{
+    padding: 0px 10px;
+}
+.inputNumber::-webkit-outer-spin-button,
+.inputNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

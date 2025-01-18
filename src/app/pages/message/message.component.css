@@ -14,13 +14,15 @@
 }
 .middle{
     height: calc(100% - 16%);
-    margin-top: 55px;
-    padding: 10px;
+    margin-top: 60px;
+    margin-left: 10px;
+    padding: 10px 30px;
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
     scrollbar-width: thin;
 }
+
 .footer{
     position: fixed;
     bottom: 0px;
@@ -86,12 +88,15 @@ h3{
     gap: 10px;
 }
 .iconBox{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     box-shadow: 1px 1px 3px black;
     cursor: pointer;
+}
+icon{
+    width: 20px;
 }

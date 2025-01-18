@@ -17,6 +17,7 @@
     height: calc(100% - 80px);
     scroll-behavior: smooth;
     scrollbar-width: thin;
+    padding-top: 10px;
     padding-bottom: 80px;
 }
 .searchContainer{
@@ -50,8 +51,8 @@
     gap: 5px;
 }
 .iconBox{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,4 +68,11 @@ h3{
 }
 span{
     color: red;
+}
+.mat-badge-content{
+    background-color: red !important;
+    color: white !important;
+}
+.icon{
+    width: 20px;
 }

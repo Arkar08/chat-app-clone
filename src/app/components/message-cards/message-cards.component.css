@@ -1,0 +1,25 @@
+.messageCard{
+    width: 350px;
+    border: 1px solid black;
+    padding: 10px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.messageCardContainer{
+    display: flex;
+    margin-top: 5px;
+}
+.profile{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.time{
+    font-size: 12px;
+    text-wrap: nowrap;
+}

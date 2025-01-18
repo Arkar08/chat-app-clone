@@ -7,6 +7,11 @@ import { ChatListComponent } from './pages/chat-list/chat-list.component';
 import { MessageComponent } from './pages/message/message.component';
 import { CardComponent } from './components/card/card.component';
 import { SingleLayoutComponent } from './layout/single-layout/single-layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { AddingUserComponent } from './components/adding-user/adding-user.component';
+import { FormsModule } from '@angular/forms';
+import { MessageCardsComponent } from './components/message-cards/message-cards.component';
 
 
 
@@ -17,11 +22,16 @@ import { SingleLayoutComponent } from './layout/single-layout/single-layout.comp
     MessageComponent,
     CardComponent,
     SingleLayoutComponent,
+    AddingUserComponent,
+    MessageCardsComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

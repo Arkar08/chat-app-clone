@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddingUserComponent } from 'src/app/components/adding-user/adding-user.component';
 
 @Component({
   selector: 'app-chat-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  addUserDialog(){
+    this.dialog.open(AddingUserComponent,{
+      width:'500px',
+      data:{}
+    })
   }
 
 }
