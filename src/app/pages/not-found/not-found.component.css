@@ -1,0 +1,37 @@
+.main{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.form{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,50%);
+}
+h3{
+    padding: 20px;
+    font-size: 48px !important;
+    font-weight: 500;
+}
+p{
+    padding: 20px;
+    font-weight: 400;
+    font-size: 24px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+button{
+    padding:10px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+    outline: none;
+    width: 200px;
+    border-radius: 10px;
+}

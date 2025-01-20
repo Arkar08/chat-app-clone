@@ -12,6 +12,10 @@ import { MaterialModule } from './material/material.module';
 import { AddingUserComponent } from './components/adding-user/adding-user.component';
 import { FormsModule } from '@angular/forms';
 import { MessageCardsComponent } from './components/message-cards/message-cards.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { SignupComponent } from './pages/auth/signup/signup.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { HomeComponent } from './layout/home/home.component';
 
 
 
@@ -24,6 +28,10 @@ import { MessageCardsComponent } from './components/message-cards/message-cards.
     SingleLayoutComponent,
     AddingUserComponent,
     MessageCardsComponent,
+    LoginComponent,
+    SignupComponent,
+    NotFoundComponent,
+    HomeComponent,
 
   ],
   imports: [

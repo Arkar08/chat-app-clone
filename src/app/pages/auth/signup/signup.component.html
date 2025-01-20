@@ -1,0 +1,31 @@
+<div class="loginMain">
+    <div class="loginHeader">
+        <h1>Chat <span>App</span></h1>
+    </div>
+    <form>
+        <h3>Signup</h3>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="text" matInput placeholder="example@gmail.com">
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Password</mat-label>
+            <input type="text" matInput placeholder="Password">
+            <mat-icon class="viewIcon">visibility</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Ph Number</mat-label>
+            <input type="number" matInput placeholder="09*********" class="inputNumber">
+        </mat-form-field>
+        <div class="rememberContainer">
+            <p class="account">Already have an account?<a routerLink="/auth/login" class="signup">Login</a></p>
+        </div>
+        <div class="action">
+            <button mat-raised-button>Signup</button>
+        </div>
+    </form>
+</div>

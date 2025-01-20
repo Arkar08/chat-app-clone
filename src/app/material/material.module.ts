@@ -5,6 +5,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 export const material = [
@@ -12,7 +15,10 @@ export const material = [
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCheckboxModule
 ]
 
 
