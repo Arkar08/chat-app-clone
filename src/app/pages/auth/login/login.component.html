@@ -2,23 +2,23 @@
     <div class="loginHeader">
         <h1>Chat <span>App</span></h1>
     </div>
-    <form>
+    <form (submit)="login()">
         <h3>Login</h3>
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input type="text" matInput placeholder="example@gmail.com">
+            <input type="text" matInput placeholder="example@gmail.com" [(ngModel)]="loginDetails.email" name='email'>
         </mat-form-field>
         <mat-form-field class="field">
             <mat-label>Password</mat-label>
-            <input type="text" matInput placeholder="Password">
-            <mat-icon class="viewIcon">visibility</mat-icon>
+            <input [type]="showPassword" matInput placeholder="Password" [(ngModel)]="loginDetails.password" name="password">
+            <mat-icon class="viewIcon" (click)="view()">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
         </mat-form-field>
         <div class="rememberContainer">
-            <mat-checkbox class="example-margin">Remember Me</mat-checkbox>
+            <mat-checkbox class="example-margin" (change)="checkInput($event)" [checked]="remember">Remember Me</mat-checkbox>
             <p class="account">Don't have an account?<a routerLink="/auth/signup" class="signup">Signup</a></p>
         </div>
         <div class="action">
-            <button mat-raised-button (click)="login()">Login</button>
+            <button mat-raised-button>Login</button>
         </div>
     </form>
 </div>
