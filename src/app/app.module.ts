@@ -16,6 +16,9 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './layout/home/home.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApiService } from './service/api.service';
+import { TokenInterceptorService } from './service/token-interceptor.service';
 
 
 
@@ -39,9 +42,13 @@ import { HomeComponent } from './layout/home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService, multi: true}
+    ,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

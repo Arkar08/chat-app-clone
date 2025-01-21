@@ -2,10 +2,10 @@
     <h3>Add Contact</h3>
     <mat-form-field>
         <mat-label>Phone Number</mat-label>
-        <input type="number" placeholder="09*********" matInput class="inputNumber" >
+        <input type="number" placeholder="09*********" matInput class="inputNumber" [(ngModel)]="contact">
     </mat-form-field>
     <div class="actions">
         <button>Cancel</button>
-        <button>Continue</button>
+        <button (click)="continue()">Continue</button>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private service:ApiService) { }
   
   ngOnInit(): void {
     this.showPassword = 'password'
@@ -43,7 +44,14 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('loginemail')
       localStorage.removeItem('loginpassword')
     }
-    this.router.navigateByUrl('/home')
+    this.service.postData('/auth/login',this.loginDetails).subscribe((res:any)=>{
+      if(res.status === 200){
+        localStorage.setItem('token',res.data.token)
+        this.router.navigateByUrl('/home')
+      }
+    },error=>{
+      alert(error.error.message)
+    })
   }
 
   checkInput(data:any){
