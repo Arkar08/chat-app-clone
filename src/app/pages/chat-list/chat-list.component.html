@@ -22,23 +22,6 @@
         </div>
     </div>
     <div class="list">
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
-       <app-card></app-card>
+       <app-card *ngFor="let user of receivedUserList;let i = index" [userName]="user.name" [profile]="user.profilePic" [userId]="user._id"></app-card>
     </div>
 </div>

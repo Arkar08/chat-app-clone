@@ -22,4 +22,5 @@ export class ApiService {
     const dataUrl = api + url;
     return this.http.get<any>(dataUrl)
   }
+
 }

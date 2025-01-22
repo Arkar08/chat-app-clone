@@ -11,11 +11,10 @@ export class LoginComponent implements OnInit {
   showPassword:any;
   hide:boolean = false;
   remember:boolean =false;
+  email:string = ''
+  password:string = ''
 
-  loginDetails = {
-    email:'',
-    password:''
-  }
+  loginDetails : any;
 
 
   constructor(private router:Router,private service:ApiService) { }
@@ -35,6 +34,10 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.loginDetails = {
+      email:this.email,
+      password:this.password
+    }
     if(this.remember){
       localStorage.setItem('remember','true')
       localStorage.setItem('loginemail',JSON.stringify(this.loginDetails.email))
@@ -45,8 +48,10 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('loginpassword')
     }
     this.service.postData('/auth/login',this.loginDetails).subscribe((res:any)=>{
+      console.log(res.data)
       if(res.status === 200){
         localStorage.setItem('token',res.data.token)
+        localStorage.setItem('userId',JSON.stringify(res.data.id))
         this.router.navigateByUrl('/home')
       }
     },error=>{
@@ -59,6 +64,10 @@ export class LoginComponent implements OnInit {
   }
 
   checkAndLogin(){
+    this.loginDetails = {
+      email:this.email,
+      password:this.password
+    }
     const remember = localStorage.getItem('remember')
     if(remember === 'true'){
       const email = localStorage.getItem('loginemail')

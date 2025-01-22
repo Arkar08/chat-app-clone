@@ -6,11 +6,11 @@
         <h3>Login</h3>
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input type="text" matInput placeholder="example@gmail.com" [(ngModel)]="loginDetails.email" name='email'>
+            <input type="text" matInput placeholder="example@gmail.com" [(ngModel)]="email" name='email' autocomplete="off">
         </mat-form-field>
         <mat-form-field class="field">
             <mat-label>Password</mat-label>
-            <input [type]="showPassword" matInput placeholder="Password" [(ngModel)]="loginDetails.password" name="password">
+            <input [type]="showPassword" matInput placeholder="Password" [(ngModel)]="password" name="password" autocomplete="off">
             <mat-icon class="viewIcon" (click)="view()">{{hide ? 'visibility':'visibility_off'}}</mat-icon>
         </mat-form-field>
         <div class="rememberContainer">

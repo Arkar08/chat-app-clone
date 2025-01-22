@@ -18,6 +18,7 @@
 h2{
     font-size: 24px;
     font-weight: 500;
+    text-transform: capitalize;
 }
 p{
     font-size: 14px;
@@ -25,3 +26,7 @@ p{
     margin-top: 5px;
     text-wrap: wrap;
 }
+.active {
+    background-color: #f0f0f0; 
+    border: 2px solid #007bff; 
+  }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/service/api.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-adding-user',
@@ -8,19 +9,23 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class AddingUserComponent implements OnInit {
   contact:any;
-  constructor(private service:ApiService) { }
+  passData:any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private dialogRef:MatDialogRef<AddingUserComponent>) { }
 
   ngOnInit(): void {
+    this.passData = this.data;
   }
 
   continue(){
-    const data = {
-      contact:this.contact
+      this.passData.contact = this.contact;
+      if(this.contact !== undefined){
+        this.dialogRef.close(this.passData)
+      }else{
+        this.dialogRef.close(null)
+      }
     }
-    this.service.postData('/conversation',data).subscribe((res:any)=>{
-      console.log(res)
-    },error =>{
-      alert(error.error.message)
-    })
+
+  cancel(){
+    this.dialogRef.close(null)
   }
 }

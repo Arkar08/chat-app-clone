@@ -1,9 +1,9 @@
 <div class="card">
     <div>
-        <img src="../../../assets/images/boy.png" alt="avatar" class="avatorImage">
+        <img [src]="profile ? profile : '../../../assets/images/boy.png'" alt="avatar" class="avatorImage">
     </div>
     <div class="textContainer">
-        <h2>Arkar</h2>
+        <h2>{{userName ? userName : 'Unknown'}}</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, in amet illo</p>
     </div>
 </div>
