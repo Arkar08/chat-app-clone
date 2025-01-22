@@ -1,11 +1,13 @@
 .card{
     height: 80px;
-    background-color: rgb(213, 208, 208);
     border-radius: 10px;
     padding: 0px 10px;
     display: flex;
     align-content: center;
     cursor: pointer;
+}
+.card:hover{
+    background-color: rgb(213, 208, 208);
 }
 .avatorImage{
     width: 65px;
@@ -27,6 +29,5 @@ p{
     text-wrap: wrap;
 }
 .active {
-    background-color: #f0f0f0; 
-    border: 2px solid #007bff; 
+    background-color: rgb(213, 208, 208);
   }

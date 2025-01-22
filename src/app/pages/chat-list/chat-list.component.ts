@@ -15,6 +15,7 @@ export class ChatListComponent implements OnInit {
   }
   userId:any;
   receivedUserList:any[]=[]
+  activeIndex:any;
   constructor(private dialog:MatDialog,private service:ApiService) { }
 
   ngOnInit(): void {
@@ -54,6 +55,14 @@ export class ChatListComponent implements OnInit {
     })
   }
 
+  setActive(index:any){
+    this.activeIndex = index;
+    for(let i = 0;i<=this.receivedUserList.length-1 ; i++){
+      if(this.receivedUserList[i] === this.receivedUserList[index]){
+        this.service.nameSelect.set(this.receivedUserList[i].name)
+      }
+    }
+  }
 
   
 }

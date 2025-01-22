@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [ngClass]="{'active':active === index}">
     <div>
         <img [src]="profile ? profile : '../../../assets/images/boy.png'" alt="avatar" class="avatorImage">
     </div>
