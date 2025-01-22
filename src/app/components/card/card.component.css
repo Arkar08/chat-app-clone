@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 .card:hover{
-    background-color: rgb(213, 208, 208);
+    background-color: rgb(125, 198, 227);
 }
 .avatorImage{
     width: 65px;
@@ -16,18 +16,19 @@
 }
 .textContainer{
     margin-left: 20px;
+    margin-top: 10px;
 }
 h2{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     text-transform: capitalize;
 }
 p{
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     margin-top: 5px;
     text-wrap: wrap;
 }
 .active {
-    background-color: rgb(213, 208, 208);
+    background-color: rgb(125, 198, 227);
   }
