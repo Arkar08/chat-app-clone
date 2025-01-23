@@ -1,8 +1,8 @@
 <div class="mainContainer">
     <div class="header">
-        <div class="headerContainer">
+        <div class="headerContainer"  *ngIf="name">
             <div>
-                <h3>To , Aung Aung</h3>
+                <h3>To , {{name}}</h3>
             </div>
             <div class="iconContainer">
                 <div class="iconBox" style="background-color: blue;" matTooltip="call">
@@ -18,48 +18,7 @@
         </div>
     </div>
     <div class="middle">
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
-            <app-message-cards></app-message-cards>
+            <app-message-cards *ngFor="let message of messages" [message]="message.meassage" [senderId]="message.senderId" [date]="message.createdAt"></app-message-cards>
     </div>
     <div class="footer">
        <div class="inputContainer">

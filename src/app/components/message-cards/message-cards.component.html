@@ -1,7 +1,15 @@
-<div class="messageCardContainer">
+<div class="messageCardContainer" *ngIf="!changCard">
     <img src="../../../assets/images/boy.png" alt="profile" class="profile">
     <div class="messageCard">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, reprehenderit.</p>
-        <p class="time">12:33 PM</p>
+        <p>{{message}}</p>
+        <p class="time">{{date}}</p>
+    </div>
+</div>
+
+
+<div class="messageCards" *ngIf="changCard">
+    <div class="message">
+        <p>{{message}}</p>
+        <p class="time">{{date}}</p>
     </div>
 </div>

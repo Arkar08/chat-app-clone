@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { error } from 'console';
 import { AddingUserComponent } from 'src/app/components/adding-user/adding-user.component';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -10,6 +9,8 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./chat-list.component.css']
 })
 export class ChatListComponent implements OnInit {
+
+  @Output() chatId = new EventEmitter<string>() 
   userAdd = {
     contact:''
   }
@@ -59,7 +60,7 @@ export class ChatListComponent implements OnInit {
     this.activeIndex = index;
     for(let i = 0;i<=this.receivedUserList.length-1 ; i++){
       if(this.receivedUserList[i] === this.receivedUserList[index]){
-        this.service.nameSelect.set(this.receivedUserList[i].name)
+          this.chatId.emit(this.receivedUserList[i])
       }
     }
   }

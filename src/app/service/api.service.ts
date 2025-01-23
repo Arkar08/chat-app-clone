@@ -23,13 +23,4 @@ export class ApiService {
     return this.http.get<any>(dataUrl)
   }
 
-  nameSelect = {
-    data:{},
-    get: function() {return this.data},
-    set: function(secData:any){
-      this.data = secData
-      return this.data
-    }
-    
-  }
 }

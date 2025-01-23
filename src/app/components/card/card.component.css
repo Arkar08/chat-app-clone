@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 .card:hover{
-    background-color: rgb(125, 198, 227);
+    background-color: gainsboro;
 }
 .avatorImage{
     width: 65px;
@@ -30,5 +30,5 @@ p{
     text-wrap: wrap;
 }
 .active {
-    background-color: rgb(125, 198, 227);
+    background-color: gainsboro;
   }
