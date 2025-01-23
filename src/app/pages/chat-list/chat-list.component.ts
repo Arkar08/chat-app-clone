@@ -30,7 +30,6 @@ export class ChatListComponent implements OnInit {
       data:this.userAdd
     })
     dialog.afterClosed().subscribe((result:any)=>{
-      console.log(result)
       if(result !== null && result !== undefined){
          this.service.postData('/conversation',result).subscribe((res:any)=>{
             if(res.success === true){

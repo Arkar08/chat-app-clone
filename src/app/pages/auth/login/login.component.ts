@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('loginpassword')
     }
     this.service.postData('/auth/login',this.loginDetails).subscribe((res:any)=>{
-      console.log(res.data)
       if(res.status === 200){
         localStorage.setItem('token',res.data.token)
         localStorage.setItem('userId',JSON.stringify(res.data.id))
