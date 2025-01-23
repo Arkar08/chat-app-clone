@@ -3,6 +3,6 @@
         <app-chat-list (chatId)="userSelect($event)"></app-chat-list>
     </div>
     <div class="message">
-        <app-message [name]="chatListId?.name" [messages]="message"></app-message>
+        <app-message [name]="chatListId?.name" [messages]="message" [statusChat]="statusChat"></app-message>
     </div>
 </div>

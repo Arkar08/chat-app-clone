@@ -11,14 +11,18 @@ export class HomeComponent implements OnInit {
   allChatList:any[]=[]
   chatId:any;
   allMessage:any[]=[]
-  message:any[]=[]
+  message:any[]=[];
+  statusChat:boolean=false;
   constructor(private service:ApiService) { }
 
   ngOnInit(): void {
-    
+    if(this.chatListId === undefined){
+      this.statusChat = false;
+    }
   }
 
   userSelect(data:any){
+    this.statusChat = true;
     this.chatListId = data;
     this.getAllChat()
   }

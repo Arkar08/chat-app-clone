@@ -1,6 +1,6 @@
 <div class="mainContainer">
     <div class="header">
-        <div class="headerContainer"  *ngIf="name">
+        <div class="headerContainer"  *ngIf="name && statusChat">
             <div>
                 <h3>To , {{name}}</h3>
             </div>
@@ -16,6 +16,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="!statusChat" class="headerMain">
+        <h1>Welcome to the chat app.</h1>
+        <p>No Conversation in this screen.</p>
     </div>
     <div class="middle">
             <app-message-cards *ngFor="let message of messages" [message]="message.meassage" [senderId]="message.senderId" [date]="message.createdAt"></app-message-cards>

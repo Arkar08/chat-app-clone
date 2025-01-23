@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MessageComponent implements OnInit {
   @Input() name:string | undefined;
   @Input() messages:any[] | undefined;
-
+  @Input() statusChat:any | undefined;
   constructor() { }
 
   ngOnInit(): void {
