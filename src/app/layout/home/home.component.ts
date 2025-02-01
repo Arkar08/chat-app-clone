@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
         this.chatUserId = res.data._id;
       }
       this.getMessage(this.chatUserId)
+      this.getLastMessage(this.chatUserId)
     })
   }
 
@@ -44,10 +45,17 @@ export class HomeComponent implements OnInit {
         })
         this.message = messageList
         this.statusChat = false;
-        this.lastMessage = messageList[messageList.length - 1].meassage
       }
       if(res.message === 'Message not found'){
         this.statusChat = true;
+      }
+    })
+  }
+
+  getLastMessage(data:any){
+    this.service.getData(`/message/last/${data}`).subscribe((res:any)=>{
+      if(res.success === true){
+        this.lastMessage = res.data.message;
       }
     })
   }
