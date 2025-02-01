@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter,Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddingUserComponent } from 'src/app/components/adding-user/adding-user.component';
 import { ApiService } from 'src/app/service/api.service';
@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/service/api.service';
 export class ChatListComponent implements OnInit {
 
   @Output() chatId = new EventEmitter<string>() 
+  @Input()  lastMessage :any | undefined;
   userAdd = {
     contact:''
   }

@@ -10,6 +10,7 @@ export class CardComponent implements OnInit {
   @Input() profile:string | undefined;
   @Input() active:any;
   @Input() index:any;
+  @Input() lastMessage:any | undefined;
   constructor() { }
 
   ngOnInit(): void {

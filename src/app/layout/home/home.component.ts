@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   userId:any;
   chatUserId:any;
   chatListUserId:any;
+  lastMessage:any;
   
   constructor(private service:ApiService) { }
 
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit {
         })
         this.message = messageList
         this.statusChat = false;
+        this.lastMessage = messageList[messageList.length - 1].meassage
       }
       if(res.message === 'Message not found'){
         this.statusChat = true;

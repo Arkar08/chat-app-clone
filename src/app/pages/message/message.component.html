@@ -26,12 +26,12 @@
         </div>
     </div>
     <div class="footer" *ngIf="!statusChat">
-       <div class="inputContainer">
-            <input type="text" placeholder="Type a message" class="input" [(ngModel)]="message">
-            <button (click)="sendMessage()">
+       <form class="inputContainer" (submit)="sendMessage()">
+            <input type="text" placeholder="Type a message" class="input" [(ngModel)]="message" name="message">
+            <button>
                 <span>Send</span>
                 <img src="../../../assets/images/send-white.svg" alt="send.svg" class="sendImage">
             </button>
-       </div>
+        </form>
     </div>
 </div>
