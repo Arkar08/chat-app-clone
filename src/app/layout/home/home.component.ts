@@ -13,45 +13,40 @@ export class HomeComponent implements OnInit {
   allMessage:any[]=[]
   message:any[]=[];
   statusChat:boolean=false;
+  userId:any;
+  chatUserId:any;
+  chatListUserId:any;
+  
   constructor(private service:ApiService) { }
 
   ngOnInit(): void {
-    if(this.chatListId === undefined){
-      this.statusChat = false;
-    }
+    this.userId = localStorage.getItem('userId')
   }
 
   userSelect(data:any){
-    this.statusChat = true;
     this.chatListId = data;
-    this.getAllChat()
-  }
-
-  getAllChat(){
-    this.service.getData('/conversation').subscribe((res:any)=>{
+    const changeUser  = this.userId.replace(/"/g, '')
+    this.chatListUserId = this.chatListId._id;
+    this.service.getData(`/conversation/find/${this.chatListUserId}/${changeUser}`).subscribe((res:any)=>{
       if(res.success === true){
-        this.allChatList = res.data
-        this.chatId = this.allChatList.filter((chat:any)=>{
-          if(chat.receivedId.toString() === this.chatListId._id.toString()){
-            return chat._id;
-          }
-        })
-        this.getMessage(this.chatId)
+        this.chatUserId = res.data._id;
       }
-    },error =>{
-      alert(error.error.message)
+      this.getMessage(this.chatUserId)
     })
   }
 
   getMessage(data:any){
-    this.service.getData(`/message/${data[0]?._id}`).subscribe((res:any)=>{
+    this.service.getData(`/message/${data}`).subscribe((res:any)=>{
       if(res.success === true){
-        this.allMessage = res.data
-        this.message = this.allMessage
+        const messageList = res.data.map((data:any)=>{
+          return data;
+        })
+        this.message = messageList
+        this.statusChat = false;
       }
-    },error=>{
-      alert(error.error.message)
+      if(res.message === 'Message not found'){
+        this.statusChat = true;
+      }
     })
   }
-
 }

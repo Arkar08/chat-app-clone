@@ -1,6 +1,6 @@
 <div class="mainContainer">
     <div class="header">
-        <div class="headerContainer"  *ngIf="name && statusChat">
+        <div class="headerContainer"  *ngIf="name">
             <div>
                 <h3>To , {{name}}</h3>
             </div>
@@ -17,17 +17,18 @@
             </div>
         </div>
     </div>
-    <div *ngIf="!statusChat" class="headerMain">
-        <h1>Welcome to the chat app.</h1>
-        <p>No Conversation in this screen.</p>
-    </div>
     <div class="middle">
-            <app-message-cards *ngFor="let message of messages" [message]="message.meassage" [senderId]="message.senderId" [date]="message.createdAt"></app-message-cards>
+        <div *ngIf="statusChat">
+            <h1>No Conversation in this screen.</h1>
+        </div>
+        <div *ngIf="!statusChat">
+            <app-message-cards *ngFor="let message of messages" [message]="message.meassage" [senderId]="message.senderId" [date]="message.createdAt" ></app-message-cards>
+        </div>
     </div>
-    <div class="footer">
+    <div class="footer" *ngIf="!statusChat">
        <div class="inputContainer">
-            <input type="text" placeholder="Type a message" class="input">
-            <button>
+            <input type="text" placeholder="Type a message" class="input" [(ngModel)]="message">
+            <button (click)="sendMessage()">
                 <span>Send</span>
                 <img src="../../../assets/images/send-white.svg" alt="send.svg" class="sendImage">
             </button>
