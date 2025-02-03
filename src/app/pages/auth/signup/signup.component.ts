@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class SignupComponent implements OnInit {
   password:string = ''
   contact:any;
 
-  constructor(private service:ApiService) { }
+  constructor(private service:ApiService,private router:Router) { }
 
   ngOnInit(): void {
     this.showPassword = 'password'
@@ -47,6 +48,7 @@ export class SignupComponent implements OnInit {
     this.service.postData('/auth/signup',this.signupDetails).subscribe((res:any)=>{
       if(res.status === 201){
         localStorage.setItem('token',res.data.token)
+        this.router.navigateByUrl('/home')
       }
     },error=>{
       alert(error.error.message)
