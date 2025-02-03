@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
+import { SocketService } from 'src/app/socket.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   chatListUserId:any;
   lastMessage:any;
   
-  constructor(private service:ApiService) { }
+  constructor(private service:ApiService,private socket:SocketService) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
         this.chatUserId = res.data._id;
       }
       this.getMessage(this.chatUserId)
+      this.socket.join('joinRoom',this.chatUserId)
       // this.getLastMessage(this.chatUserId)
     })
   }

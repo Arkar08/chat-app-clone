@@ -18,7 +18,10 @@ export class MessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.socket.listenForMessages((newMessage: any) => {
+      this.messages?.push({meassage:newMessage})
+      this.statusChat = false; 
+    });
   }
   
   sendMessage(){
@@ -30,17 +33,16 @@ export class MessageComponent implements OnInit {
         if(res.success === true){
           this.service.getData(`/message/${this.chatListUserId}`).subscribe((res)=>{
             if(res.success === true){
-              const messageList = res.data.map((data:any)=>{
+              this.messages = res.data.map((data:any)=>{
                 return data;
               })
-              this.messages = messageList
               this.statusChat = false;
               this.message =''
             }
           })
         }
       })
-      this.socket.emit('hello')
+      this.socket.emit('sendMessageToRoom',data)
   }
 
 }
