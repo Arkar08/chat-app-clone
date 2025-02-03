@@ -2,7 +2,7 @@
     <img src="../../../assets/images/boy.png" alt="profile" class="profile">
     <div class="messageCard">
         <p>{{message}}</p>
-        <p class="time">{{date}}</p>
+        <h5 class="time">{{date | date: 'dd/MM/YYYY, h:mm a'}}</h5>
     </div>
 </div>
 
@@ -10,6 +10,6 @@
 <div class="messageCards" *ngIf="changCard">
     <div class="message">
         <p>{{message}}</p>
-        <p class="time">{{date}}</p>
+        <h5 class="time">{{date  | date: 'dd/MM/YYYY, h:mm a'}}</h5>
     </div>
 </div>

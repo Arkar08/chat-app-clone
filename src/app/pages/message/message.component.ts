@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
+import { SocketService } from 'src/app/socket.service';
 
 @Component({
   selector: 'app-message',
@@ -13,12 +14,13 @@ export class MessageComponent implements OnInit {
   @Input() chatListUserId:any | undefined;
 
   message:string = '';
-  constructor(private service:ApiService) { }
+  constructor(private service:ApiService,private socket:SocketService) { 
+  }
 
   ngOnInit(): void {
 
   }
-
+  
   sendMessage(){
     const data = {
       chatId:this.chatListUserId,
@@ -38,6 +40,7 @@ export class MessageComponent implements OnInit {
           })
         }
       })
+      this.socket.emit('hello')
   }
 
 }

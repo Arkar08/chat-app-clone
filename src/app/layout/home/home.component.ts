@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
         this.chatUserId = res.data._id;
       }
       this.getMessage(this.chatUserId)
-      this.getLastMessage(this.chatUserId)
+      // this.getLastMessage(this.chatUserId)
     })
   }
 
@@ -52,11 +52,11 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  getLastMessage(data:any){
-    this.service.getData(`/message/last/${data}`).subscribe((res:any)=>{
-      if(res.success === true){
-        this.lastMessage = res.data.message;
-      }
-    })
-  }
+  // getLastMessage(data:any){
+  //   this.service.getData(`/message/last/${data}`).subscribe((res:any)=>{
+  //     if(res.success === true){
+  //       this.lastMessage = res.data.message;
+  //     }
+  //   })
+  // }
 }

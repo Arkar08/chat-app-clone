@@ -19,6 +19,8 @@ import { HomeComponent } from './layout/home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiService } from './service/api.service';
 import { TokenInterceptorService } from './service/token-interceptor.service';
+import { DatePipe } from '@angular/common';
+import { SocketService } from './socket.service';
 
 
 
@@ -48,7 +50,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
   providers: [ {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService, multi: true}
-    ,ApiService],
+    ,ApiService,DatePipe,SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
