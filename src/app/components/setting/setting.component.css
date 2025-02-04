@@ -63,3 +63,11 @@ mat-form-field{
         font-size: 18px;
     }
 }
+
+::ng-deep .error-snackbar{
+    background: red !important;
+    color: white;
+}
+::ng-deep .mat-simple-snackbar-action{
+    color: white !important;
+}

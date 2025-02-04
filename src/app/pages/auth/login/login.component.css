@@ -84,3 +84,15 @@ button{
     text-decoration: underline;
     color: blue;
 }
+::ng-deep .mat-simple-snackbar-action{
+    color: white !important;
+}
+
+::ng-deep .success-snackbar{
+    background: green !important;
+    color: white;
+}
+::ng-deep .error-snackbar{
+    background: red !important;
+    color: white;
+}

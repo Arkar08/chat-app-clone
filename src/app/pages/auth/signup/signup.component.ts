@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -23,7 +24,7 @@ export class SignupComponent implements OnInit {
   password:string = ''
   contact:any;
 
-  constructor(private service:ApiService,private router:Router) { }
+  constructor(private service:ApiService,private router:Router,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.showPassword = 'password'
@@ -49,9 +50,20 @@ export class SignupComponent implements OnInit {
       if(res.status === 201){
         localStorage.setItem('token',res.data.token)
         this.router.navigateByUrl('/home')
+        this.snackBar.open('signup successfully', 'Close', {
+          duration: 2000,
+          verticalPosition: 'top',
+          horizontalPosition: 'end',
+          panelClass: ['success-snackbar']
+        })
       }
     },error=>{
-      alert(error.error.message)
+      this.snackBar.open(error.error.message,'Close', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'end',
+        panelClass: ['error-snackbar']
+      })
     })
   }
 

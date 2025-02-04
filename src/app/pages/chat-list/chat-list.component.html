@@ -16,7 +16,7 @@
             <div class="iconBox" style="background-color: black;" matTooltip="settings">
                 <img src="../../../assets/images/settings-white.svg" alt="setting" class="icon" (click)="settingDialog()">
             </div>
-            <div class="iconBox" style="background-color: gray;" matTooltip="Notifications" matBadge="15" matBadgeSize="small">
+            <div class="iconBox" style="background-color: gray;" matTooltip="Notifications" [matBadge]="nofifications.length" matBadgeSize="small">
                 <img src="../../../assets/images/noti-white.svg" alt="noti" class="icon">
             </div>
         </div>

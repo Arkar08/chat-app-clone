@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,AfterViewChecked } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from 'src/app/service/api.service';
 import { SocketService } from 'src/app/socket.service';
 
@@ -7,14 +8,19 @@ import { SocketService } from 'src/app/socket.service';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent implements OnInit,AfterViewChecked {
+
   @Input() name:string | undefined;
   @Input() messages:any[] | undefined;
   @Input() statusChat:any | undefined;
   @Input() chatListUserId:any | undefined;
+  @Input() receivedId:any | undefined;
 
   message:string = '';
-  constructor(private service:ApiService,private socket:SocketService) { 
+  constructor(private service:ApiService,private socket:SocketService,private snackBar:MatSnackBar) { 
+  }
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
   ngOnInit(): void {
@@ -24,6 +30,11 @@ export class MessageComponent implements OnInit {
     });
   }
   
+  scrollToBottom(){
+    const container = document.getElementById('scrollcontainer') as HTMLElement;
+    container.scrollTop = container?.scrollHeight
+  }
+
   sendMessage(){
     const data = {
       chatId:this.chatListUserId,
@@ -31,17 +42,46 @@ export class MessageComponent implements OnInit {
     }
       this.service.postData('/message',data).subscribe((res:any)=>{
         if(res.success === true){
-          this.service.getData(`/message/${this.chatListUserId}`).subscribe((res)=>{
-            if(res.success === true){
-              this.messages = res.data.map((data:any)=>{
+          this.service.getData(`/message/${this.chatListUserId}`).subscribe((result)=>{
+            if(result.success === true){
+              this.messages = result.data.map((data:any)=>{
                 return data;
               })
               this.statusChat = false;
               this.message =''
             }
+          },error =>{
+            this.snackBar.open(error.error.message,'Close', {
+              duration: 2000,
+              verticalPosition: 'top',
+              horizontalPosition: 'end',
+              panelClass: ['error-snackbar']
+            })
           })
         }
+        const receivedData = {
+          receivedId:this.receivedId,
+          message:this.message
+        }
+        Notification.requestPermission().then((perm:any)=>{
+          if(perm === 'granted'){
+            new Notification('Example noti',{
+              body:this.message,
+              icon:'favicon.ico',
+              tag:'Welcome Message'
+            })
+          }
+        })
+
         this.socket.emit('sendMessageToRoom',res.data)
+        this.socket.emit('sendNotifications',receivedData)
+      },error =>{
+        this.snackBar.open(error.error.message,'Close', {
+          duration: 2000,
+          verticalPosition: 'top',
+          horizontalPosition: 'end',
+          panelClass: ['error-snackbar']
+        })
       })
   }
 

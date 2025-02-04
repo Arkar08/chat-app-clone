@@ -1,14 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { io } from 'socket.io-client';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class SocketService {
+export class SocketService implements OnDestroy {
+
   private socket = io('http://localhost:5050')
     constructor() {
    }
+
+   ngOnDestroy(){
+    this.socket.disconnect()
+  }
 
    emit(event:string,data:any){
     return this.socket.emit(event,data)
@@ -23,5 +28,10 @@ export class SocketService {
       });
     }
   
+    nofication(callback:(message:any) => void){
+      this.socket.on('newNotifications',(data:any)=>{
+        callback(data)
+      })
+    }
   
 }

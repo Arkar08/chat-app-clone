@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from 'src/app/service/api.service';
 
 
@@ -16,7 +17,7 @@ export class SettingComponent implements OnInit {
     contact:''
   };
   active:boolean = true;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private dialogRef:MatDialogRef<SettingComponent>,private service:ApiService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private dialogRef:MatDialogRef<SettingComponent>,private service:ApiService,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
@@ -33,6 +34,13 @@ export class SettingComponent implements OnInit {
         if(res.success === true){
           this.userDetails = res.data;
         }
+      },error =>{
+        this.snackBar.open(error.error.message,'Close', {
+          duration: 2000,
+          verticalPosition: 'top',
+          horizontalPosition: 'end',
+          panelClass: ['error-snackbar']
+        })
       })
   }
 

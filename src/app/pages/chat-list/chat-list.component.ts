@@ -1,9 +1,10 @@
-import { Component, OnInit, Output,EventEmitter,Input } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter,Input, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AddingUserComponent } from 'src/app/components/adding-user/adding-user.component';
 import { SettingComponent } from 'src/app/components/setting/setting.component';
 import { ApiService } from 'src/app/service/api.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-chat-list',
@@ -20,11 +21,18 @@ export class ChatListComponent implements OnInit {
   userId:any;
   receivedUserList:any[]=[]
   activeIndex:any;
-  constructor(private dialog:MatDialog,private service:ApiService,private router:Router) { }
+  nofifications:any[]=[]
+  constructor(private dialog:MatDialog,private service:ApiService,private router:Router,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
     this.getConversation()
+
+    // this.socket.nofication((data:any)=>{
+    //   console.log(data)
+    //   this.nofifications.push(data.message)
+    //   console.log(this.nofifications)
+    // })
   }
 
   addUserDialog(){
@@ -37,9 +45,20 @@ export class ChatListComponent implements OnInit {
          this.service.postData('/conversation',result).subscribe((res:any)=>{
             if(res.success === true){
               this.getConversation()
+              this.snackBar.open('contact create succssefully', 'Close', {
+                duration: 2000,
+                verticalPosition: 'top',
+                horizontalPosition: 'end',
+                panelClass: ['success-snackbar']
+              })
             }
           },error =>{
-            alert(error.error.message)
+            this.snackBar.open(error.error.message,'Close', {
+                duration: 2000,
+                verticalPosition: 'top',
+                horizontalPosition: 'end',
+                panelClass: ['error-snackbar']
+              })
           })
         }else{
           this.getConversation()
@@ -59,6 +78,12 @@ export class ChatListComponent implements OnInit {
             localStorage.removeItem('userId')
             localStorage.removeItem('token')
             this.router.navigateByUrl('/auth/login')
+            this.snackBar.open('logout successfully', 'Close', {
+              duration: 2000,
+              verticalPosition: 'top',
+              horizontalPosition: 'end',
+              panelClass: ['success-snackbar']
+            })
           }
         })
       }
@@ -72,15 +97,24 @@ export class ChatListComponent implements OnInit {
         this.receivedUserList = res.data;
       }
     },error=>{
-      alert(error.error.message)
+      this.snackBar.open(error.error.message,'Close', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'end',
+        panelClass: ['error-snackbar']
+      })
     })
   }
 
   setActive(index:any){
-    this.activeIndex = index;
-    for(let i = 0;i<=this.receivedUserList.length-1 ; i++){
-      if(this.receivedUserList[i] === this.receivedUserList[index]){
-          this.chatId.emit(this.receivedUserList[i])
+    if(this.activeIndex === index){
+      return;
+    }else{
+      this.activeIndex = index;
+      for(let i = 0;i<=this.receivedUserList.length-1 ; i++){
+        if(this.receivedUserList[i] === this.receivedUserList[index]){
+            this.chatId.emit(this.receivedUserList[i])
+        }
       }
     }
   }

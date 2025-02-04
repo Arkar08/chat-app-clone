@@ -42,8 +42,7 @@ import { MoreInfoComponent } from './components/more-info/more-info.component';
     HomeComponent,
     NotificationsComponent,
     SettingComponent,
-    MoreInfoComponent,
-
+    MoreInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +50,7 @@ import { MoreInfoComponent } from './components/more-info/more-info.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ {
     provide: HTTP_INTERCEPTORS,

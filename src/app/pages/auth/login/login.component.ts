@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   loginDetails : any;
 
 
-  constructor(private router:Router,private service:ApiService) { }
+  constructor(private router:Router,private service:ApiService,private snackBar:MatSnackBar) { }
   
   ngOnInit(): void {
     this.showPassword = 'password'
@@ -52,9 +53,20 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token',res.data.token)
         localStorage.setItem('userId',JSON.stringify(res.data.id))
         this.router.navigateByUrl('/home')
+        this.snackBar.open('login successfully', 'Close', {
+          duration: 2000,
+          verticalPosition: 'top',
+          horizontalPosition: 'end',
+          panelClass: ['success-snackbar']
+        })
       }
     },error=>{
-      alert(error.error.message)
+      this.snackBar.open(error.error.message,'Close', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'end',
+        panelClass: ['error-snackbar']
+      })
     })
   }
 

@@ -89,3 +89,16 @@ button{
   -webkit-appearance: none;
     margin: 0;
 }
+
+::ng-deep .mat-simple-snackbar-action{
+    color: white !important;
+}
+
+::ng-deep .success-snackbar{
+    background: green !important;
+    color: white;
+}
+::ng-deep .error-snackbar{
+    background: red !important;
+    color: white;
+}

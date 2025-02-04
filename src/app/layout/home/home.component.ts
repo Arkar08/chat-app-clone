@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from 'src/app/service/api.service';
 import { SocketService } from 'src/app/socket.service';
 
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   chatListUserId:any;
   lastMessage:any;
   
-  constructor(private service:ApiService,private socket:SocketService) { }
+  constructor(private service:ApiService,private socket:SocketService,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
@@ -36,6 +37,13 @@ export class HomeComponent implements OnInit {
       this.getMessage(this.chatUserId)
       this.socket.join('joinRoom',this.chatUserId)
       // this.getLastMessage(this.chatUserId)
+    },error =>{
+      this.snackBar.open(error.error.message,'Close', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'end',
+        panelClass: ['error-snackbar']
+      })
     })
   }
 
@@ -51,6 +59,13 @@ export class HomeComponent implements OnInit {
       if(res.message === 'Message not found'){
         this.statusChat = true;
       }
+    },error =>{
+      this.snackBar.open(error.error.message,'Close', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'end',
+        panelClass: ['error-snackbar']
+      })
     })
   }
 

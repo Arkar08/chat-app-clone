@@ -12,7 +12,7 @@
     top: 0px;
     box-shadow: 3px 1px 1px black;
 }
-.middle{
+.scrollContainer{
     height: calc(100% - 16%);
     margin-top: 60px;
     margin-left: 10px;
@@ -107,4 +107,12 @@ h3{
 }
 icon{
     width: 20px;
+}
+
+::ng-deep .error-snackbar{
+    background: red !important;
+    color: white;
+}
+::ng-deep .mat-simple-snackbar-action{
+    color: white !important;
 }

@@ -8,6 +8,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar'
 
 
 export const material = [
@@ -18,7 +19,8 @@ export const material = [
   MatBadgeModule,
   MatButtonModule,
   MatIconModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSnackBarModule
 ]
 
 
