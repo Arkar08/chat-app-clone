@@ -73,6 +73,7 @@ export class LoginComponent implements OnInit {
       const password = localStorage.getItem('loginpassword')
       this.email = JSON.parse(email || '');
       this.password = JSON.parse(password || '')
+      this.remember = JSON.parse(remember || '')
     }
     return;
   }
