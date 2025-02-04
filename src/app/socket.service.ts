@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { io, Socket } from 'socket.io-client';
+import { io } from 'socket.io-client';
 
 
 @Injectable({
@@ -20,7 +19,7 @@ export class SocketService {
 
     listenForMessages(callback: (message: any) => void) {
       this.socket.on('receiveMessage', (data: any) => {
-        callback(data);  // Invoke the callback with the message data
+        callback(data); 
       });
     }
   

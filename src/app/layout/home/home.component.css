@@ -5,6 +5,7 @@
 }
 .list{
     width: 25%;
+    border-right: 0.5px solid black;
 }
 .message{
     width: 75%;

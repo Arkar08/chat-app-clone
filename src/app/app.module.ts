@@ -21,6 +21,9 @@ import { ApiService } from './service/api.service';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { DatePipe } from '@angular/common';
 import { SocketService } from './socket.service';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { SettingComponent } from './components/setting/setting.component';
+import { MoreInfoComponent } from './components/more-info/more-info.component';
 
 
 
@@ -37,6 +40,9 @@ import { SocketService } from './socket.service';
     SignupComponent,
     NotFoundComponent,
     HomeComponent,
+    NotificationsComponent,
+    SettingComponent,
+    MoreInfoComponent,
 
   ],
   imports: [

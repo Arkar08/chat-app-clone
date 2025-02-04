@@ -1,0 +1,65 @@
+.main{
+    position: relative;
+    height:520px;
+    overflow: hidden;
+}
+.backgroundImage{
+    background-color: green;
+    height: 150px;
+}
+
+.profile{
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%,50%);
+}
+
+.profileImage{
+    width: 100px;
+    height: 100px;
+}
+.btn{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+.edit{
+    background-color: blue;
+    color: white;
+}
+.save{
+    background-color: green;
+    color: white;
+}
+mat-form-field{
+    width: 100%;
+    padding:0px 10px;
+}
+.toggleContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.toggle{
+    color: green;
+    width: 50px !important;
+    font-size: 60px !important;
+    cursor: pointer;
+}
+.toggleText{
+    margin-top: 15px;
+    font-size: 18px !important;
+}
+.logout{
+    width: 96%;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background-color: blue;
+    color: white;
+
+    span{
+        margin-left: 1rem;
+        font-size: 18px;
+    }
+}

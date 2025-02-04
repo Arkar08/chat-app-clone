@@ -1,0 +1,34 @@
+<div class="main">
+    <div>
+        <div class="backgroundImage"></div>
+        <div class="profile">
+            <img src="assets/images/boy.png" alt="profileImage" class="profileImage">
+        </div>
+    </div>
+    <div class="btn">
+        <button mat-raised-button class="edit" (click)="edit()" *ngIf="active">Edit</button>
+        <button mat-raised-button class="save" (click)="save()"  *ngIf="!active" >Save</button>
+    </div>
+    <form>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" matInput [(ngModel)]="userDetails.name" [disabled]="active" name="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="text" matInput [(ngModel)]="userDetails.email" [disabled]="active" name="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Contact</mat-label>
+            <input type="text" matInput [(ngModel)]="userDetails.contact" [disabled]="active" name="contact">
+        </mat-form-field>
+    </form>
+    <div class="toggleContainer">
+        <p class="toggleText">Toggle Theme</p>
+        <mat-icon class="toggle">toggle_on</mat-icon>
+    </div>
+    <button mat-raised-button class="logout" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+    </button>
+</div>

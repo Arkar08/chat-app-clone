@@ -27,7 +27,7 @@
     </div>
     <div class="footer">
        <form class="inputContainer" (submit)="sendMessage()">
-            <input type="text" placeholder="Type a message" class="input" [(ngModel)]="message" name="message">
+            <input type="text" placeholder="Type a message" class="input" [(ngModel)]="message" name="message" autocomplete="off">
             <button>
                 <span>Send</span>
                 <img src="../../../assets/images/send-white.svg" alt="send.svg" class="sendImage">

@@ -1,6 +1,8 @@
 import { Component, OnInit, Output,EventEmitter,Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AddingUserComponent } from 'src/app/components/adding-user/adding-user.component';
+import { SettingComponent } from 'src/app/components/setting/setting.component';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -18,7 +20,7 @@ export class ChatListComponent implements OnInit {
   userId:any;
   receivedUserList:any[]=[]
   activeIndex:any;
-  constructor(private dialog:MatDialog,private service:ApiService) { }
+  constructor(private dialog:MatDialog,private service:ApiService,private router:Router) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
@@ -42,6 +44,24 @@ export class ChatListComponent implements OnInit {
         }else{
           this.getConversation()
         }
+    })
+  }
+
+  settingDialog(){
+    const dialogRef = this.dialog.open(SettingComponent,{
+      width:'500px',
+      data:''
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result === 'logout'){
+        this.service.postData('/auth/logout',result).subscribe((res:any)=>{
+          if(res === 'logout successfully'){
+            localStorage.removeItem('userId')
+            localStorage.removeItem('token')
+            this.router.navigateByUrl('/auth/login')
+          }
+        })
+      }
     })
   }
 

@@ -71,8 +71,8 @@ export class LoginComponent implements OnInit {
     if(remember === 'true'){
       const email = localStorage.getItem('loginemail')
       const password = localStorage.getItem('loginpassword')
-      this.loginDetails.email = JSON.parse(email || '') ;
-      this.loginDetails.password = JSON.parse(password || '');
+      this.email = JSON.parse(email || '');
+      this.password = JSON.parse(password || '')
     }
     return;
   }

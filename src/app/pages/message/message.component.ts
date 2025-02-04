@@ -18,8 +18,8 @@ export class MessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.socket.listenForMessages((newMessage: any) => {
-      this.messages?.push({meassage:newMessage})
+    this.socket.listenForMessages((data: any) => {
+      this.messages?.push({meassage:data.message,createdAt:data.date})
       this.statusChat = false; 
     });
   }
@@ -41,8 +41,8 @@ export class MessageComponent implements OnInit {
             }
           })
         }
+        this.socket.emit('sendMessageToRoom',res.data)
       })
-      this.socket.emit('sendMessageToRoom',data)
   }
 
 }
