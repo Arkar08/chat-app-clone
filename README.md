@@ -39,7 +39,7 @@ Make sure you have these installed:
 3. **Start the app**:
     - To run the app:
       ```bash
-      npm start
+      npm run dev
       ```
 
 ## Features
