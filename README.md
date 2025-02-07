@@ -1,7 +1,7 @@
 # Chat App
 
 ## Project Overview
-This is a real-time chat application that allows users to send messages, create private chats, and participate in group discussions.
+This is a real-time chat application that allows users to send messages, create private chats.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -21,7 +21,8 @@ Make sure you have these installed:
 ### Steps to Set Up
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/chat-app.git
+    git clone https://github.com/Arkar08/chat-app-clone.git (for frontend)
+    git clone https://github.com/Arkar08/chat-app-clone-backend.git (for backend)
     cd chat-app
     ```
 
@@ -35,14 +36,7 @@ Make sure you have these installed:
       yarn install
       ```
 
-3. **Configure environment variables** (e.g., in `.env`):
-    ```
-    DB_URI=your-database-url
-    JWT_SECRET=your-secret-key
-    SOCKET_PORT=your-socket-port
-    ```
-
-4. **Start the app**:
+3. **Start the app**:
     - To run the app:
       ```bash
       npm start
@@ -56,11 +50,17 @@ Make sure you have these installed:
 - Push notifications for new messages
 
 ## Technology Stack
-- **Frontend**: React, WebSockets
+- **Frontend**: Angular, WebSockets
 - **Backend**: Node.js, Express
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Tokens)
 - **Real-Time Communication**: Socket.IO
+
+## Deployment
+-To see the free hosting with vercel.
+```bash
+  https://chat-app-clone-three.vercel.app/auth/login
+```
 
 ## Contributing
 1. Fork this repository
