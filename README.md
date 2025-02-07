@@ -1,55 +1,82 @@
-###Project Overview
+# Chat App
 
-<p>This project is a real-time chat application that allows users to send messages and communicate with others seamlessly.</p>
-<p>It includes features such as private messaging, group chats, and media sharing. The app is built using [mention the technology stack, e.g., Angular, Node.js, WebSockets, etc.].</p>
+## Project Overview
+This is a real-time chat application that allows users to send messages, create private chats, and participate in group discussions.
 
-###Installation
-<h4>Prerequisites</h4>
-<ul>Ensure that you have the following installed on your machine:</ul>
-<li>Node.js (version 16.20.2)</li>
-<li>npm</li>
-<li>A code editor (e.g., VSCode)</li>
+## Table of Contents
+- [Installation](#installation)
+- [Features](#features)
+- [Usage](#usage)
+- [Technology Stack](#technology-stack)
+- [Contributing](#contributing)
+- [License](#license)
 
-###Local Setup
-<p> 1. Clone the repository:</p>
-```bash
-    git clone https://github.com/Arkar08/chat-app-clone.git
-    cd chat-app-clone
-```
-<p> 2. Install dependencies: Using npm:</p>
-```bash
-    npm install
-```
-<p> 3. Run the App</p>
-```bash
-    npm run dev
-```
+## Installation
 
-###Features
-<ul>
-  <li>Real-time Messaging: Users can send and receive messages in real-time.</li>
-  <li>User Authentication: Secure login and registration using JWT tokens.</li>
-  <li>Message Notifications: Users receive notifications for new messages.</li>
-  <li>Private Chats: Users can chat privately with other users.</li>
-</ul>
+### Prerequisites
+Make sure you have these installed:
+- Node.js (version X.X.X)
+- npm or yarn
 
-###Usage
-<ul>
-  <li>Sign Up / Log In: Once you open the app, you’ll be prompted to sign up or log in. You can register with your email or login using pre-existing credentials.    </li>
-  <li>Start a Conversation: Select a user or group from the contacts or create a new conversation to begin chatting.</li>
-  <li>Send Messages: Type your message in the input field and press "Send" or hit Enter</li>
-  <li>Notifications: You'll receive real-time notifications for any new messages in your active chats.</li>
-</ul>
+### Steps to Set Up
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/chat-app.git
+    cd chat-app
+    ```
 
-###Technology Stack
-<ul>
-  <li>Frontend: Angular, WebSocket</li>
-  <li>Real-Time Communication: WebSockets (Socket.IO)</li>
-</ul>
+2. **Install dependencies**:
+    - Using npm:
+      ```bash
+      npm install
+      ```
+    - Using yarn:
+      ```bash
+      yarn install
+      ```
 
-###Deployement
-<p>The application is deployed on Vercel. To access the live application, visit</p>
-<a href="https://chat-app-clone-three.vercel.app/auth/login">Link</a>
+3. **Configure environment variables** (e.g., in `.env`):
+    ```
+    DB_URI=your-database-url
+    JWT_SECRET=your-secret-key
+    SOCKET_PORT=your-socket-port
+    ```
 
-###License
-<p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
+4. **Start the app**:
+    - To run the app:
+      ```bash
+      npm start
+      ```
+
+## Features
+- Real-time messaging using WebSockets
+- User authentication with JWT
+- Private and group chats
+- File sharing (images, documents)
+- Push notifications for new messages
+
+## Technology Stack
+- **Frontend**: React, WebSockets
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **Authentication**: JWT (JSON Web Tokens)
+- **Real-Time Communication**: Socket.IO
+
+## Contributing
+1. Fork this repository
+2. Create a new branch:
+    ```bash
+    git checkout -b feature-branch
+    ```
+3. Make your changes and commit:
+    ```bash
+    git commit -m "Add feature"
+    ```
+4. Push the branch:
+    ```bash
+    git push origin feature-branch
+    ```
+5. Open a pull request.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
