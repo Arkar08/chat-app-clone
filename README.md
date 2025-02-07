@@ -47,5 +47,9 @@
   <li>Real-Time Communication: WebSockets (Socket.IO)</li>
 </ul>
 
+###Deployement
+<p>The application is deployed on Vercel. To access the live application, visit</p>
+<a href="https://chat-app-clone-three.vercel.app/auth/login">Link</a>
+
 ###License
 <p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
