@@ -15,7 +15,7 @@ This is a real-time chat application that allows users to send messages, create 
 
 ### Prerequisites
 Make sure you have these installed:
-- Node.js (version X.X.X)
+- Node.js (version => 16)
 - npm or yarn
 
 ### Steps to Set Up
@@ -30,6 +30,7 @@ Make sure you have these installed:
     - Using npm:
       ```bash
       npm install
+      npm install -g @angular/cli
       ```
     - Using yarn:
       ```bash
@@ -39,7 +40,7 @@ Make sure you have these installed:
 3. **Start the app**:
     - To run the app:
       ```bash
-      npm run dev
+      ng s
       ```
 
 ## Features
